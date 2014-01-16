@@ -1,27 +1,21 @@
-" general stuff
-execute pathogen#infect()
+"" basics
 set nocompatible
-filetype plugin indent on
-
-" basics   {{{
-" enable syntax highlighting
 syntax enable
-
-" enable line numbers
+filetype plugin indent on
 set number
-
-" endcoding
 set encoding=utf-8
+execute pathogen#infect()
 
 " menu for choosing files
-set wildmode=longest:full
+set wildmode=list:longest,full
+"set wildmode=longest:full
 set wildmenu
 set wildignore=*.o,*.obj,*.aux,*.nav,*.out,*.snm,*.toc
 
 " highlight the line with the cursor
 set cursorline
 
-" space around the cursor (above & below)
+" context around the cursor
 set scrolloff=5
 
 " write changes to file on certain occasions
@@ -31,18 +25,20 @@ set backspace=indent,eol,start
 
 " make sure there is no sound when an error takes place
 set noerrorbells
+"set visualbell
 
 " jump briefly to matching brackets
-set showmatch
+set noshowmatch " turned off: it is distracting with the current colorscheme
+set matchtime=3
 
 " formating
 set textwidth=79
-set colorcolumn=85
+set colorcolumn=80
 
 " Sets spaces used for (auto)indent
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 " Tab key inserts spaces instead of tabs
 set expandtab
@@ -53,11 +49,11 @@ set shiftround
 
 " indent
 set cindent
-"set autoindent
+set autoindent
 
 " spellcheck
-setlocal spell spelllang=de_20
-set nospell
+"setlocal spell spelllang=de_20
+"set nospell
 
 " security: prevent modeline exploits
 set modelines=0
@@ -68,67 +64,50 @@ set modelines=0
 "set relativenumber
 
 
-" }}}
-
-" search {{{
-
+"" search
 set incsearch
 set hlsearch
 set ignorecase
-"set smartcase
+set smartcase
 
-" }}}
 
-"" Status line {{{
-"
+"" replace
+set gdefault    " :%s/foo/bar should replace in whole file not just current line
+
+"" Status line
 "set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
-"
-"" }}}
 
-"" Backups {{{
-"
+
+"" Backups
 "set backupdir=~/.vim/tmp/backup// " backups
 "set directory=~/.vim/tmp/swap//   " swap files
 "set backup                        " enable backups
-"
-"" }}}
 
-" folding {{{
 
+"" folding
 set foldmethod=indent
 set foldlevelstart=2
 
-" }}}
 
-" macros {{{
-
-" romove all trailing whitespace
-au BufWritePre * :%s/\s\+$//e
-
-" changes working directory to the directory of the last opened file
-au BufEnter * if expand("%:p:h") !~ '^/tmp' | lcd %:p:h | endif
-"autocmd BufEnter * :lcd %:p:h
-
-" go to the line where the last edit took place
-autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\""| endif
-
-" }}}
-
-" color scheme {{{
+"" color scheme
 set t_Co=256
 
 "colorscheme molokai_new
+"colorscheme evening
 colorscheme molokai
-let g:molokai_original=1
-"let g:rehash256 = 1
+"let g:molokai_original=1
+let g:rehash256=1
 set background=dark
 
-" }}}
 
-" key mappings {{{
-
-" leader
+"" key mappings
 let mapleader = ","
+
+" :W should save as well
+command W w
+command Wq wq
+command WQ wq
+command Q q
 
 " learning vim
 nnoremap <up> <nop>
@@ -142,9 +121,54 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
-" }}}
 
-"" PLUGINS  {{{
+"" PLUGINS
+if has("autocmd")
+    " remove all trailing whitespace
+    au BufWritePre * :%s/\s\+$//e
+
+    " changes working directory to the directory of the last opened file
+    au BufEnter * if expand("%:p:h") !~ '^/tmp' | lcd %:p:h | endif
+    "autocmd BufEnter * :lcd %:p:h
+
+    " go to the line where the last edit took place
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\""| endif
+
+    " Turn off line wrap for common files
+    au BufNewFile,BufRead db.*	    setlocal nowrap nofen
+    au BufNewFile,BufRead /etc/*	setlocal nowrap nofen
+
+    "" Rainbows Parentheses
+    au VimEnter * RainbowParenthesesToggle
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+
+    "let g:rbpt_colorpairs = [
+    "    \ ['magenta',     'purple1'],
+    "    \ ['cyan',        'magenta1'],
+    "    \ ['green',       'slateblue1'],
+    "    \ ['yellow',      'cyan1'],
+    "    \ ['red',         'springgreen1'],
+    "    \ ['magenta',     'green1'],
+    "    \ ['cyan',        'greenyellow'],
+    "    \ ['green',       'yellow1'],
+    "    \ ['yellow',      'orange1'],
+    "    \ ]
+    "let g:rbpt_max = 9
+
+
+    "" Ruby
+    au FileType ruby                setl sw=2 sts=2 expandtab "list
+
+    " RSpec
+    au Filetype ruby noremap <silent> <F5> :!rspec % -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
+    "noremap <silent> <F3> :!rspec %  -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
+    "au Filetype ruby noremap <F3> <C-o>:update<Bar>execute '!rspec '.shellescape(expand('%:r'), 1)<CR>
+
+    " RuboCop
+    au Filetype ruby noremap <silent> <F6> :RuboCop<CR>
+endif
 
 "" latex-suite
 "lower priority in tab completion
@@ -157,17 +181,57 @@ let g:Tex_MultipleCompileFormats = 'dvi,pdf'
 let g:Tex_ViewRule_pdf = 'evince'
 let g:Tex_ViewRule_dvi = 'evince'
 
+
+"" Hexedit
+nnoremap <F3> :Hexmode<CR>
+inoremap <F3> <Esc>:Hexmode<CR>
+vnoremap <F3> :<C-U>Hexmode<CR>
+
+" ex command for toggling hex mode - define mapping if desired
+command -bar Hexmode call ToggleHex()
+
+" helper function to toggle hex mode
+function ToggleHex()
+    " hex mode should be considered a read-only operation
+    " save values for modified and read-only for restoration later,
+    " and clear the read-only flag for now
+    let l:modified=&mod
+    let l:oldreadonly=&readonly
+    let &readonly=0
+    let l:oldmodifiable=&modifiable
+    let &modifiable=1
+    if !exists("b:editHex") || !b:editHex
+        " save old options
+        let b:oldft=&ft
+        let b:oldbin=&bin
+        " set new options
+        setlocal binary " make sure it overrides any textwidth, etc.
+        let &ft="xxd"
+        " set status
+        let b:editHex=1
+        " switch to hex editor
+        %!xxd
+    else
+        " restore old options
+        let &ft=b:oldft
+        if !b:oldbin
+            setlocal nobinary
+        endif
+        " set status
+        let b:editHex=0
+        " return to normal editing
+        %!xxd -r
+    endif
+    " restore values for modified and read only state
+    let &mod=l:modified
+    let &readonly=l:oldreadonly
+    let &modifiable=l:oldmodifiable
+endfunction
+
+
 "" NERDTree
 map <silent> <F2> :NERDTreeToggle<CR>
 
+
 "" YankRing
 nnoremap <silent> <F11> :YRShow<CR>
-
-"" Rainbows Parentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-"au Syntax * RainbowParenthesesLoadBraces
-
-" }}}
-
