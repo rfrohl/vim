@@ -1,41 +1,41 @@
 [submodule "bundle/vim-rake"]
-	path = bundle/vim-rake
+	path = bundle/rake
 	url = git://github.com/tpope/vim-rake.git
 [submodule "bundle/vim-bundler"]
-	path = bundle/vim-bundler
+	path = bundle/bundler
 	url = git://github.com/tpope/vim-bundler.git
 [submodule "bundle/vim-rails"]
-	path = bundle/vim-rails
+	path = bundle/rails
 	url = git://github.com/tpope/vim-rails.git
 [submodule "bundle/c.vim"]
-	path = bundle/c.vim
+	path = bundle/c
 	url = https://github.com/vim-scripts/c.vim.git
 [submodule "bundle/vim-tlib"]
-	path = bundle/vim-tlib
+	path = bundle/tlib
 	url = https://github.com/tomtom/tlib_vim.git
 [submodule "bundle/vim-addon-mw-utils"]
-	path = bundle/vim-addon-mw-utils
+	path = bundle/addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "bundle/vim-snipmate"]
-	path = bundle/vim-snipmate
+	path = bundle/snipmate
 	url = https://github.com/garbas/vim-snipmate.git
 [submodule "bundle/vim-snippets"]
-	path = bundle/vim-snippets
+	path = bundle/snippets
 	url = https://github.com/honza/vim-snippets.git
 [submodule "bundle/vim-surround"]
-	path = bundle/vim-surround
+	path = bundle/surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/vim-repeat"]
-	path = bundle/vim-repeat
+	path = bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
 [submodule "bundle/vim-nerdtree"]
-	path = bundle/vim-nerdtree
+	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "bundle/vim-rainbow-parentheses"]
-	path = bundle/vim-rainbow-parentheses
+	path = bundle/rainbow-parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "bundle/vim-tabular"]
-	path = bundle/vim-tabular
+	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
 [submodule "bundle/molokai"]
 	path = bundle/molokai
