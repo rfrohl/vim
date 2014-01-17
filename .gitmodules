@@ -43,3 +43,12 @@
 [submodule "bundle/matchit"]
 	path = bundle/matchit
 	url = https://github.com/tmhedberg/matchit.git
+[submodule "bundle/a"]
+	path = bundle/a
+	url = https://github.com/vim-scripts/a.vim.git
+[submodule "bundle/yankring"]
+	path = bundle/yankring
+	url = https://github.com/vim-scripts/YankRing.vim.git
+[submodule "bundle/dirdiff"]
+	path = bundle/dirdiff
+	url = https://github.com/vim-scripts/DirDiff.vim.git
