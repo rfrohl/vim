@@ -230,7 +230,7 @@ endfunction
 
 
 "" NERDTree
-map <silent> <F2> :NERDTreeToggle<CR>
+map <silent> <F2> :NERDTreeTabsToggle<CR>
 
 
 "" YankRing
