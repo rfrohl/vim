@@ -158,8 +158,15 @@ if has("autocmd")
     "let g:rbpt_max = 9
 
 
+    "" C
+    au FileType c         setl sw=8 ts=8 sts=8 noexpandtab cindent "list
+
+    " a.vim
+     let g:alternateSearchPath = "sfr:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:./include"
+
+
     "" Ruby
-    au FileType ruby                setl sw=2 sts=2 expandtab "list
+    au FileType ruby      setl sw=2 sts=2 expandtab "list
 
     " RSpec
     au Filetype ruby noremap <silent> <F5> :!rspec % -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
