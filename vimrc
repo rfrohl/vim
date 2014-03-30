@@ -121,6 +121,10 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+" disable F1 help
+nmap <F1> :echo<CR>
+imap <F1> <C-o>:echo<CR>
+
 
 "" PLUGINS
 if has("autocmd")
