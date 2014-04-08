@@ -128,8 +128,8 @@ imap <F1> <C-o>:echo<CR>
 
 "" PLUGINS
 if has("autocmd")
-    " remove all trailing whitespace
-    au BufWritePre * :%s/\s\+$//e
+    " remove all trailing whitespace when saving
+    au BufWritePre * :call TrimWhiteSpace()
 
     " changes working directory to the directory of the last opened file
     au BufEnter * if expand("%:p:h") !~ '^/tmp' | lcd %:p:h | endif
@@ -238,6 +238,13 @@ function ToggleHex()
     let &readonly=l:oldreadonly
     let &modifiable=l:oldmodifiable
 endfunction
+
+
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+
+nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 
 
 "" NERDTree
