@@ -8,7 +8,6 @@ execute pathogen#infect()
 
 " menu for choosing files
 set wildmode=list:longest,full
-"set wildmode=longest:full
 set wildmenu
 set wildignore=*.o,*.obj,*.aux,*.nav,*.out,*.snm,*.toc
 
@@ -78,24 +77,14 @@ set gdefault    " :%s/foo/bar should replace in whole file not just current line
 "set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
 
 
-"" Backups
-"set backupdir=~/.vim/tmp/backup// " backups
-"set directory=~/.vim/tmp/swap//   " swap files
-"set backup                        " enable backups
-
-
 "" folding
 set foldmethod=indent
 set foldlevelstart=2
 
 
 "" color scheme
-set t_Co=256
-
-"colorscheme molokai_new
-"colorscheme evening
 colorscheme molokai
-"let g:molokai_original=1
+set t_Co=256
 let g:rehash256=1
 set background=dark
 
