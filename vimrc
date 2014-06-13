@@ -121,7 +121,7 @@ if has("autocmd")
     au BufWritePre * :call TrimWhiteSpace()
 
     " changes working directory to the directory of the last opened file
-    au BufEnter * if expand("%:p:h") !~ '^/tmp' | lcd %:p:h | endif
+    "au BufEnter * if expand("%:p:h") !~ '^/tmp' | lcd %:p:h | endif
     "autocmd BufEnter * :lcd %:p:h
 
     " go to the line where the last edit took place
@@ -149,6 +149,11 @@ if has("autocmd")
     "    \ ['yellow',      'orange1'],
     "    \ ]
     "let g:rbpt_max = 9
+
+
+    "" ctrlp
+    let g:ctrlp_map = '<c-p>'
+    map <Leader>p :CtrlP <CR>
 
 
     "" C
