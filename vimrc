@@ -74,7 +74,8 @@ set smartcase
 set gdefault    " :%s/foo/bar should replace in whole file not just current line
 
 "" Status line
-"set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%=%c,%l/%L\%P
+set laststatus=2
 
 
 "" folding
