@@ -74,7 +74,7 @@ set smartcase
 set gdefault    " :%s/foo/bar should replace in whole file not just current line
 
 "" Status line
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%=%c,%l/%L\%P
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%=%c,%l/%L,%P
 set laststatus=2
 
 
