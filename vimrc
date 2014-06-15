@@ -243,8 +243,11 @@ nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 
 
 "" NERDTree
-map <silent> <F2> :NERDTreeTabsToggle<CR>
+map <silent> <F1> :NERDTreeTabsToggle<CR>
 
+
+"" Gundo
+nnoremap <F2> :GundoToggle<CR>
 
 "" YankRing
 nnoremap <silent> <F11> :YRShow<CR>
