@@ -248,6 +248,8 @@ map <silent> <F1> :NERDTreeTabsToggle<CR>
 
 "" Gundo
 nnoremap <F2> :GundoToggle<CR>
+let g:gundo_preview_bottom = 1
+let g:gundo_width = 28
 
 "" YankRing
 nnoremap <silent> <F11> :YRShow<CR>
