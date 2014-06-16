@@ -34,6 +34,8 @@ set matchtime=3
 set textwidth=79
 set colorcolumn=80
 
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+
 " Sets spaces used for (auto)indent
 set tabstop=4
 set shiftwidth=4
@@ -51,17 +53,14 @@ set cindent
 set autoindent
 
 " spellcheck
-"setlocal spell spelllang=de_20
+"setlocal spell spelllang=en_us
 "set nospell
 
 " security: prevent modeline exploits
 set modelines=0
 
 " TODO look into the folowing:
-"set ttyfast
-"set ruler
 "set relativenumber
-
 
 "" search
 set incsearch
