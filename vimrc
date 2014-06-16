@@ -73,10 +73,6 @@ set smartcase
 "" replace
 set gdefault    " :%s/foo/bar should replace in whole file not just current line
 
-"" Status line
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%{fugitive#statusline()}%=%c,%l/%L,%P
-set laststatus=2
-
 
 "" folding
 set foldmethod=indent
@@ -155,6 +151,11 @@ if has("autocmd")
     "" ctrlp
     let g:ctrlp_map = '<c-p>'
     map <Leader>p :CtrlP <CR>
+
+
+    "" Airline
+    set laststatus=2
+    let g:airline_theme = 'molokai'
 
 
     "" C
