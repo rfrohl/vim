@@ -81,6 +81,7 @@ set foldlevelstart=2
 "" color scheme
 colorscheme molokai
 set t_Co=256
+set t_ut=
 let g:rehash256=1
 set background=dark
 
@@ -155,6 +156,14 @@ if has("autocmd")
     "" Airline
     set laststatus=2
     let g:airline_theme = 'molokai'
+
+    "" tmuxline
+    let g:tmuxline_separators = {
+        \ 'left' : '',
+        \ 'left_alt': '>',
+        \ 'right' : '',
+        \ 'right_alt' : '<',
+        \ 'space' : ' '}
 
 
     "" C
