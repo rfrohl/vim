@@ -149,7 +149,7 @@ if has("autocmd")
 
 
     "" ctrlp
-    let g:ctrlp_map = '<c-p>'
+    "let g:ctrlp_map = '<c-p>'
     map <Leader>p :CtrlP <CR>
 
 
