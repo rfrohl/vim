@@ -2,9 +2,10 @@
 set nocompatible
 syntax enable
 filetype plugin indent on
+execute pathogen#infect()
+
 set number
 set encoding=utf-8
-execute pathogen#infect()
 
 " menu for choosing files
 set wildmode=list:longest,full
@@ -14,7 +15,7 @@ set wildignore=*.o,*.obj,*.aux,*.nav,*.out,*.snm,*.toc
 " highlight the line with the cursor
 set cursorline
 
-" context around the cursor
+" context(space) around the cursor
 set scrolloff=5
 
 " write changes to file on certain occasions
@@ -107,94 +108,23 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+" ========================================================================
+" Function Keys - F*
+" ========================================================================
+
 " disable F1 help
 nmap <F1> :echo<CR>
 imap <F1> <C-o>:echo<CR>
 
 
-"" PLUGINS
-if has("autocmd")
-    " remove all trailing whitespace when saving
-    au BufWritePre * :call TrimWhiteSpace()
-
-    " changes working directory to the directory of the last opened file
-    "au BufEnter * if expand("%:p:h") !~ '^/tmp' | lcd %:p:h | endif
-    "autocmd BufEnter * :lcd %:p:h
-
-    " go to the line where the last edit took place
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\""| endif
-
-    " Turn off line wrap for common files
-    au BufNewFile,BufRead db.*	    setlocal nowrap nofen
-    au BufNewFile,BufRead /etc/*	setlocal nowrap nofen
-
-    "" Rainbows Parentheses
-    au VimEnter * RainbowParenthesesToggle
-    au Syntax * RainbowParenthesesLoadRound
-    au Syntax * RainbowParenthesesLoadSquare
-    au Syntax * RainbowParenthesesLoadBraces
-
-    "let g:rbpt_colorpairs = [
-    "    \ ['magenta',     'purple1'],
-    "    \ ['cyan',        'magenta1'],
-    "    \ ['green',       'slateblue1'],
-    "    \ ['yellow',      'cyan1'],
-    "    \ ['red',         'springgreen1'],
-    "    \ ['magenta',     'green1'],
-    "    \ ['cyan',        'greenyellow'],
-    "    \ ['green',       'yellow1'],
-    "    \ ['yellow',      'orange1'],
-    "    \ ]
-    "let g:rbpt_max = 9
+"" NERDTree
+map <silent> <F1> :NERDTreeTabsToggle<CR>
 
 
-    "" ctrlp
-    "let g:ctrlp_map = '<c-p>'
-    map <Leader>p :CtrlP <CR>
-
-
-    "" Airline
-    set laststatus=2
-    let g:airline_theme = 'molokai'
-
-    "" tmuxline
-    let g:tmuxline_separators = {
-        \ 'left' : '',
-        \ 'left_alt': '>',
-        \ 'right' : '',
-        \ 'right_alt' : '<',
-        \ 'space' : ' '}
-
-
-    "" C
-    au FileType c         setl sw=8 ts=8 sts=8 noexpandtab cindent "list
-
-    " a.vim
-     let g:alternateSearchPath = "sfr:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:./include"
-
-
-    "" Ruby
-    au FileType ruby      setl sw=2 sts=2 expandtab "list
-
-    " RSpec
-    au Filetype ruby noremap <silent> <F5> :!rspec % -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
-    "noremap <silent> <F3> :!rspec %  -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
-    "au Filetype ruby noremap <F3> <C-o>:update<Bar>execute '!rspec '.shellescape(expand('%:r'), 1)<CR>
-
-    " RuboCop
-    au Filetype ruby noremap <silent> <F6> :RuboCop<CR>
-endif
-
-"" latex-suite
-"lower priority in tab completion
-set suffixes+=.aux,.log,.toc,.dvi " LaTeX
-set suffixes+=.eps,+.pdf
-
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_MultipleCompileFormats = 'dvi,pdf'
-"let g:Tex_ViewRule_ps  = 'evince'
-let g:Tex_ViewRule_pdf = 'evince'
-let g:Tex_ViewRule_dvi = 'evince'
+"" Gundo
+nnoremap <F2> :GundoToggle<CR>
+let g:gundo_preview_bottom = 1
+let g:gundo_width = 28
 
 
 "" Hexedit
@@ -244,21 +174,113 @@ function ToggleHex()
 endfunction
 
 
+"" YankRing
+nnoremap <silent> <F11> :YRShow<CR>
+
+
+" ========================================================================
+" File type matching
+" ========================================================================
+
+if has("autocmd")
+    " changes working directory to the directory of the last opened file
+    "au BufEnter * if expand("%:p:h") !~ '^/tmp' | lcd %:p:h | endif
+    "autocmd BufEnter * :lcd %:p:h
+
+    " go to the line where the last edit took place
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\""| endif
+
+    " Turn off line wrap for common files
+    au BufNewFile,BufRead db.*	    setlocal nowrap nofen
+    au BufNewFile,BufRead /etc/*	setlocal nowrap nofen
+
+
+    "" C
+    au FileType c         setl sw=8 ts=8 sts=8 noexpandtab cindent "list
+
+    " a.vim
+    let g:alternateSearchPath = "sfr:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:./include"
+
+
+    "" Ruby
+    au FileType ruby      setl sw=2 sts=2 expandtab "list
+
+    " RSpec
+    au Filetype ruby noremap <silent> <F5> :!rspec % -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
+    "noremap <silent> <F3> :!rspec %  -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
+    "au Filetype ruby noremap <F3> <C-o>:update<Bar>execute '!rspec '.shellescape(expand('%:r'), 1)<CR>
+
+    " RuboCop
+    au Filetype ruby noremap <silent> <F6> :RuboCop<CR>
+endif
+
+" ========================================================================
+" PLUGINS
+" ========================================================================
+
+"" latex-suite
+"lower priority in tab completion
+set suffixes+=.aux,.log,.toc,.dvi " LaTeX
+set suffixes+=.eps,+.pdf
+
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_MultipleCompileFormats = 'dvi,pdf'
+"let g:Tex_ViewRule_ps  = 'evince'
+let g:Tex_ViewRule_pdf = 'evince'
+let g:Tex_ViewRule_dvi = 'evince'
+
+
+"" Rainbows Parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+"let g:rbpt_colorpairs = [
+"    \ ['magenta',     'purple1'],
+"    \ ['cyan',        'magenta1'],
+"    \ ['green',       'slateblue1'],
+"    \ ['yellow',      'cyan1'],
+"    \ ['red',         'springgreen1'],
+"    \ ['magenta',     'green1'],
+"    \ ['cyan',        'greenyellow'],
+"    \ ['green',       'yellow1'],
+"    \ ['yellow',      'orange1'],
+"    \ ]
+"let g:rbpt_max = 9
+
+
+"" ctrlp
+"let g:ctrlp_map = '<c-p>'
+map <Leader>p :CtrlP <CR>
+
+
+"" Airline
+set laststatus=2
+let g:airline_theme = 'molokai'
+
+"" tmuxline
+let g:tmuxline_separators = {
+            \ 'left' : '',
+            \ 'left_alt': '>',
+            \ 'right' : '',
+            \ 'right_alt' : '<',
+            \ 'space' : ' '}
+
+
+"" Tabularize
+map <Leader>t :Tabularize /
+
+" ========================================================================
+" Macros
+" ========================================================================
+
+"" trim trailing whitespaces
+nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
+
+" remove all trailing whitespaces when saving a file
+au BufWritePre * :call TrimWhiteSpace()
+
 function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
-
-nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
-
-
-"" NERDTree
-map <silent> <F1> :NERDTreeTabsToggle<CR>
-
-
-"" Gundo
-nnoremap <F2> :GundoToggle<CR>
-let g:gundo_preview_bottom = 1
-let g:gundo_width = 28
-
-"" YankRing
-nnoremap <silent> <F11> :YRShow<CR>
