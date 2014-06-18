@@ -2,12 +2,12 @@
 set nocompatible
 syntax enable
 filetype plugin indent on
+
 set number
 set encoding=utf-8
 
 " menu for choosing files
 set wildmode=list:longest,full
-"set wildmode=longest:full
 set wildmenu
 set wildignore=*.o,*.obj,*.aux,*.nav,*.out,*.snm,*.toc
 
@@ -33,6 +33,8 @@ set matchtime=3
 " formating
 set textwidth=79
 set colorcolumn=80
+
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 " Sets spaces used for (auto)indent
 set tabstop=4
@@ -70,9 +72,9 @@ set foldlevelstart=2
 
 
 "" color scheme
-set t_Co=256
-
 colorscheme evening
+set t_Co=256
+set t_ut=
 set background=dark
 
 
@@ -97,29 +99,14 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+" ========================================================================
+" Function Keys - F*
+" ========================================================================
 
-"" PLUGINS
-if has("autocmd")
-    " remove all trailing whitespace
-    au BufWritePre * :%s/\s\+$//e
+" disable F1 help
+nmap <F1> :echo<CR>
+imap <F1> <C-o>:echo<CR>
 
-    " changes working directory to the directory of the last opened file
-    au BufEnter * if expand("%:p:h") !~ '^/tmp' | lcd %:p:h | endif
-    "autocmd BufEnter * :lcd %:p:h
-
-    " go to the line where the last edit took place
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\""| endif
-
-    " Turn off line wrap for common files
-    au BufNewFile,BufRead db.*	    setlocal nowrap nofen
-    au BufNewFile,BufRead /etc/*	setlocal nowrap nofen
-
-    "" C
-    au FileType c         setl sw=8 ts=8 sts=8 noexpandtab cindent "list
-
-    "" Ruby
-    au FileType ruby      setl sw=2 sts=2 expandtab "list
-endif
 
 "" Hexedit
 nnoremap <F3> :Hexmode<CR>
@@ -167,3 +154,43 @@ function ToggleHex()
     let &modifiable=l:oldmodifiable
 endfunction
 
+
+" ========================================================================
+" File type matching
+" ========================================================================
+
+if has("autocmd")
+    " remove all trailing whitespace
+    au BufWritePre * :%s/\s\+$//e
+
+    " changes working directory to the directory of the last opened file
+    au BufEnter * if expand("%:p:h") !~ '^/tmp' | lcd %:p:h | endif
+    "autocmd BufEnter * :lcd %:p:h
+
+    " go to the line where the last edit took place
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\""| endif
+
+    " Turn off line wrap for common files
+    au BufNewFile,BufRead db.*	    setlocal nowrap nofen
+    au BufNewFile,BufRead /etc/*	setlocal nowrap nofen
+
+    "" C
+    au FileType c         setl sw=8 ts=8 sts=8 noexpandtab cindent "list
+
+    "" Ruby
+    au FileType ruby      setl sw=2 sts=2 expandtab "list
+endif
+
+" ========================================================================
+" Macros
+" ========================================================================
+
+"" trim trailing whitespaces
+nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
+
+" remove all trailing whitespaces when saving a file
+au BufWritePre * :call TrimWhiteSpace()
+
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
