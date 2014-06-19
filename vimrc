@@ -254,6 +254,12 @@ let g:rbpt_max = 9
 "let g:ctrlp_map = '<c-p>'
 map <Leader>p :CtrlP <CR>
 
+" enter - open new tab
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': [],
+  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+  \ }
+
 
 "" Airline
 set laststatus=2
