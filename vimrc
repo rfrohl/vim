@@ -256,9 +256,9 @@ map <Leader>p :CtrlP <CR>
 
 " enter - open new tab
 let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("e")': [],
-  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
-  \ }
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
 
 
 "" Airline
@@ -267,11 +267,12 @@ let g:airline_theme = 'molokai'
 
 "" tmuxline
 let g:tmuxline_separators = {
-            \ 'left' : '',
-            \ 'left_alt': '>',
-            \ 'right' : '',
-            \ 'right_alt' : '<',
-            \ 'space' : ' '}
+    \ 'left' : '',
+    \ 'left_alt': '>',
+    \ 'right' : '',
+    \ 'right_alt' : '<',
+    \ 'space' : ' '
+    \ }
 
 
 "" Tabularize
