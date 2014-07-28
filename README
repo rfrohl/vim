@@ -1,10 +1,13 @@
 Check out
     git checkout <URL> .vim
 
-What needs to be done to use this:
+What needs to be done to use this repo with vim
     ln -s ~/.vim/vimrc ~/.vimrc
     ln -s ~/.vim/gvimrc ~/.gvimrc
     git submodule update --init
 
 Or use the install script
     ~/.vim/install.sh
+
+Requirements:
+    ack
