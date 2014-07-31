@@ -96,11 +96,9 @@ command Wq wq
 command WQ wq
 command Q q
 
-" move between tabs using alt+h/l
-set <m-l>=l
-nnoremap <m-l> gt
-set <m-h>=h
-nnoremap <m-h> gT
+" move between tabs using shift+h/l
+nnoremap <S-h> gT
+nnoremap <S-l> gt
 
 " learning vim
 nnoremap <up> <nop>
