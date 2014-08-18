@@ -130,11 +130,13 @@ nnoremap <F2> :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
 let g:gundo_width = 28
 
+"" Gblame
+nnoremap <F3> :Gblame<CR>
 
 "" Hexedit
-nnoremap <F3> :Hexmode<CR>
-inoremap <F3> <Esc>:Hexmode<CR>
-vnoremap <F3> :<C-U>Hexmode<CR>
+nnoremap <F4> :Hexmode<CR>
+inoremap <F4> <Esc>:Hexmode<CR>
+vnoremap <F4> :<C-U>Hexmode<CR>
 
 " ex command for toggling hex mode - define mapping if desired
 command -bar Hexmode call ToggleHex()
