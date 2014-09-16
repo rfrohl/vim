@@ -7,6 +7,9 @@ execute pathogen#infect()
 set number
 set encoding=utf-8
 
+" disable swap files
+set noswapfile
+
 " menu for choosing files
 set wildmode=list:longest,full
 set wildmenu
