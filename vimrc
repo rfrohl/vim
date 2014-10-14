@@ -79,7 +79,7 @@ set gdefault    " :%s/foo/bar should replace in whole file not just current line
 
 "" folding
 set foldmethod=indent
-set foldlevelstart=2
+"set foldlevelstart=2
 
 
 "" color scheme
