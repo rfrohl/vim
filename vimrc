@@ -134,7 +134,7 @@ let g:gundo_preview_bottom = 1
 let g:gundo_width = 28
 
 "" Gblame
-nnoremap <F3> :Gblame<CR>
+nnoremap <silent> <F3> :Gblame<CR>
 
 "" Hexedit
 nnoremap <F4> :Hexmode<CR>
@@ -181,6 +181,10 @@ function ToggleHex()
     let &readonly=l:oldreadonly
     let &modifiable=l:oldmodifiable
 endfunction
+
+
+"" TagList
+nnoremap <silent> <F5> ::TlistToggle<CR>
 
 
 "" YankRing

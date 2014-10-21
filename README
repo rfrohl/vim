@@ -11,3 +11,4 @@ Or use the install script
 
 Requirements:
     ack
+    exuberant-ctags
