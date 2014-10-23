@@ -184,7 +184,7 @@ endfunction
 
 
 "" TagList
-nnoremap <silent> <F5> ::TlistToggle<CR>
+nnoremap <silent> <F5> :TlistToggle<CR>
 
 
 "" YankRing
@@ -220,12 +220,12 @@ if has("autocmd")
     au FileType ruby      setl sw=2 sts=2 expandtab "list
 
     " RSpec
-    au Filetype ruby noremap <silent> <F5> :!rspec % -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
+    au Filetype ruby noremap <silent> <F9> :!rspec % -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
     "noremap <silent> <F3> :!rspec %  -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
     "au Filetype ruby noremap <F3> <C-o>:update<Bar>execute '!rspec '.shellescape(expand('%:r'), 1)<CR>
 
     " RuboCop
-    au Filetype ruby noremap <silent> <F6> :RuboCop<CR>
+    au Filetype ruby noremap <silent> <F10> :RuboCop<CR>
 endif
 
 " ========================================================================
