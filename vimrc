@@ -92,6 +92,7 @@ set background=dark
 
 "" key mappings
 let mapleader = ","
+map <Leader>cqf :cclose <CR>
 
 " :W should save as well
 command W w
@@ -213,7 +214,7 @@ if has("autocmd")
     au FileType c         setl sw=8 ts=8 sts=8 expandtab cindent "list
 
     " a.vim
-    let g:alternateSearchPath = "sfr:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:./include"
+    let g:alternateSearchPath = "sfr:.,sfr:../include,sfr:../inc,sfr:./include,sfr:../source,sfr:../src"
     map <Leader>a :A <CR>
 
 
