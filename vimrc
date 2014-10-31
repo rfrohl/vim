@@ -210,7 +210,7 @@ if has("autocmd")
 
 
     "" C
-    au FileType c         setl sw=8 ts=8 sts=8 noexpandtab cindent "list
+    au FileType c         setl sw=8 ts=8 sts=8 expandtab cindent "list
 
     " a.vim
     let g:alternateSearchPath = "sfr:../source,sfr:../src,sfr:../include,sfr:../inc,sfr:./include"
