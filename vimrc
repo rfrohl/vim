@@ -184,9 +184,8 @@ function ToggleHex()
 endfunction
 
 
-"" TagList
-nnoremap <silent> <F5> :TlistToggle<CR>
-let Tlist_Use_Right_Window=1
+"" Tagbar
+nnoremap <silent> <F5> :TagbarToggle<CR>
 
 
 "" YankRing
