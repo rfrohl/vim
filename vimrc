@@ -197,10 +197,6 @@ nnoremap <silent> <F11> :YRShow<CR>
 " ========================================================================
 
 if has("autocmd")
-    " changes working directory to the directory of the last opened file
-    "au BufEnter * if expand("%:p:h") !~ '^/tmp' | lcd %:p:h | endif
-    "autocmd BufEnter * :lcd %:p:h
-
     " go to the line where the last edit took place
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\""| endif
 
@@ -222,8 +218,6 @@ if has("autocmd")
 
     " RSpec
     au Filetype ruby noremap <silent> <F9> :!rspec % -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
-    "noremap <silent> <F3> :!rspec %  -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
-    "au Filetype ruby noremap <F3> <C-o>:update<Bar>execute '!rspec '.shellescape(expand('%:r'), 1)<CR>
 
     " RuboCop
     au Filetype ruby noremap <silent> <F10> :RuboCop<CR>
@@ -266,7 +260,6 @@ let g:rbpt_max = 9
 
 
 "" ctrlp
-"let g:ctrlp_map = '<c-p>'
 map <Leader>p :CtrlP <CR>
 
 " enter - open new tab
