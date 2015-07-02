@@ -210,7 +210,7 @@ if has("autocmd")
 
     " a.vim
     let g:alternateSearchPath = "sfr:.,sfr:../include,sfr:../inc,sfr:./include,sfr:../source,sfr:../src"
-    map <Leader>a :A <CR>
+    map <silent> <Leader>a :A <CR>
 
 
     "" Ruby
