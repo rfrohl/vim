@@ -272,6 +272,7 @@ let g:ctrlp_prompt_mappings = {
 "" Airline
 set laststatus=2
 let g:airline_theme = 'molokai'
+let g:airline#extensions#tmuxline#enabled = 0
 
 "" tmuxline
 let g:tmuxline_separators = {
