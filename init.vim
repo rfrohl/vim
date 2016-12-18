@@ -221,6 +221,9 @@ if has("autocmd")
 
     " RuboCop
     au Filetype ruby noremap <silent> <F10> :RuboCop<CR>
+
+    "" ymal
+    au FileType yaml setl sw=2 sts=2 expandtab
 endif
 
 " ========================================================================
