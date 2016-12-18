@@ -3,6 +3,7 @@ set nocompatible
 syntax enable
 filetype plugin indent on
 execute pathogen#infect()
+let mapleader = ","
 
 set number
 set encoding=utf-8
@@ -56,9 +57,10 @@ set shiftround
 set cindent
 set autoindent
 
-" spellcheck
-"setlocal spell spelllang=en_us
-"set nospell
+" spell check
+set spelllang=en_us
+nmap <silent> <leader>s :set spell! <CR>
+
 
 " security: prevent modeline exploits
 set modelines=0
@@ -91,7 +93,6 @@ set background=dark
 
 
 "" key mappings
-let mapleader = ","
 map <Leader>cqf :cclose <CR>
 
 " :W should save as well
