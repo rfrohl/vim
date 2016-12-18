@@ -10,6 +10,7 @@ set encoding=utf-8
 
 " disable swap files
 set noswapfile
+set hidden
 
 " menu for choosing files
 set wildmode=list:longest,full
