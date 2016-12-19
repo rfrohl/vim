@@ -6,7 +6,9 @@ ln -s ~/.vim/gvimrc ~/.gvimrc
 if [ ! -d  ~/.config ] ; then
     mkdir ~/.config
 fi
-ln -s ~/.vim ~/.config/nvim
+if [ ! -h  ~/.config/nvim ] ; then
+    ln -s ~/.vim ~/.config/nvim
+fi
 
 cd ~/.vim && git submodule update --init
 
