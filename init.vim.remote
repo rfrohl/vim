@@ -2,12 +2,14 @@
 set nocompatible
 syntax enable
 filetype plugin indent on
+let mapleader = ","
 
 set number
 set encoding=utf-8
 
 " disable swap files
 set noswapfile
+set hidden
 
 " menu for choosing files
 set wildmode=list:longest,full
@@ -55,6 +57,11 @@ set shiftround
 set cindent
 set autoindent
 
+" spell check
+set spelllang=en_us
+nmap <silent> <leader>s :set spell! <CR>
+
+
 " security: prevent modeline exploits
 set modelines=0
 
@@ -82,9 +89,6 @@ let g:rehash256=1
 set background=dark
 
 
-"" key mappings
-let mapleader = ","
-
 " :W should save as well
 command W w
 command Wq wq
@@ -102,9 +106,9 @@ imap <F1> <C-o>:echo<CR>
 
 
 "" Hexedit
-nnoremap <F3> :Hexmode<CR>
-inoremap <F3> <Esc>:Hexmode<CR>
-vnoremap <F3> :<C-U>Hexmode<CR>
+nnoremap <F4> :Hexmode<CR>
+inoremap <F4> <Esc>:Hexmode<CR>
+vnoremap <F4> :<C-U>Hexmode<CR>
 
 " ex command for toggling hex mode - define mapping if desired
 command -bar Hexmode call ToggleHex()
@@ -163,6 +167,7 @@ if has("autocmd")
     " Turn off line wrap for common files
     au BufNewFile,BufRead db.*	    setlocal nowrap nofen
     au BufNewFile,BufRead /etc/*	setlocal nowrap nofen
+
 
     "" C
     au FileType c         setl sw=8 ts=8 sts=8 noexpandtab cindent "list
