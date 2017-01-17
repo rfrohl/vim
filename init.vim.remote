@@ -82,7 +82,7 @@ set foldlevelstart=10
 
 
 "" color scheme
-colorscheme evening
+colorscheme darkblue
 set t_Co=256
 set t_ut=
 let g:rehash256=1
