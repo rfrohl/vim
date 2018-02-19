@@ -215,8 +215,12 @@ if has("autocmd")
     map <silent> <Leader>a :A <CR>
 
 
+    "" Python
+    au FileType python setl ts=4 sts=4 sw=4 expandtab
+
+
     "" Ruby
-    au FileType ruby      setl sw=2 sts=2 expandtab "list
+    au FileType ruby setl ts=2 sts=2 sw=2 expandtab
 
     " RSpec
     au Filetype ruby noremap <silent> <F9> :!rspec % -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
@@ -224,8 +228,11 @@ if has("autocmd")
     " RuboCop
     au Filetype ruby noremap <silent> <F10> :RuboCop<CR>
 
-    "" ymal
-    au FileType yaml setl sw=2 sts=2 expandtab
+    "" yaml
+    au FileType yaml setl ts=2 sts=2 sw=2 expandtab
+
+    "" web stuff
+    au FileType js,html,css setl ts=2 sts=2 sw=2 expandtab
 endif
 
 " ========================================================================
