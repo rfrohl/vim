@@ -15,7 +15,7 @@ set hidden
 " menu for choosing files
 set wildmode=list:longest,full
 set wildmenu
-set wildignore=*.o,*.obj,*.aux,*.nav,*.out,*.snm,*.toc
+set wildignore=*.o,*.obj,*.aux,*.nav,*.out,*.snm,*.swp,*.toc
 
 " highlight the line with the cursor
 set cursorline
@@ -94,7 +94,6 @@ set background=dark
 
 
 "" key mappings
-map <Leader>cqf :cclose <CR>
 
 " :W should save as well
 command W w
@@ -273,6 +272,16 @@ let g:rbpt_max = 9
 
 "" ctrlp
 map <Leader>p :CtrlP <CR>
+map <Leader>b :CtrlPBuffer <CR>
+map <Leader>m :CtrlPMixed <CR>
+"" ctrlp + ctags
+map <Leader>c :CtrlPTag <CR>
+
+" added 'venv' normally used for virtualenv
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)|venv$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
 
 
 "" Airline
