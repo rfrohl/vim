@@ -4,6 +4,7 @@ syntax enable
 filetype plugin indent on
 execute pathogen#infect()
 let mapleader = ","
+set title
 
 set number
 set encoding=utf-8
@@ -232,6 +233,9 @@ if has("autocmd")
 
     "" web stuff
     au FileType js,html,css setl ts=2 sts=2 sw=2 expandtab
+
+    "" always spellcheck certain file types
+    au FileType markdown setl spell
 endif
 
 " ========================================================================
