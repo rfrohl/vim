@@ -230,6 +230,7 @@ if has("autocmd")
 
     "" yaml
     au FileType yaml setl ts=2 sts=2 sw=2 expandtab
+    au FileType yml setl ts=2 sts=2 sw=2 expandtab
 
     "" web stuff
     au FileType js,html,css setl ts=2 sts=2 sw=2 expandtab
