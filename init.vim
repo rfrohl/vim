@@ -315,7 +315,7 @@ map <Leader>t :Tabularize /
 nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 
 " remove all trailing whitespaces when saving a file
-au BufWritePre * :call TrimWhiteSpace()
+"au BufWritePre * :call TrimWhiteSpace()
 
 function! TrimWhiteSpace()
     %s/\s\+$//e
