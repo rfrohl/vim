@@ -6,7 +6,6 @@ execute pathogen#infect()
 let mapleader = ","
 set title
 
-set number
 set encoding=utf-8
 
 " disable swap files
@@ -67,8 +66,14 @@ nmap <silent> <leader>s :set spell! <CR>
 " security: prevent modeline exploits
 set modelines=0
 
-" TODO look into the folowing:
-"set relativenumber
+" line numbers
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 "" search
 set incsearch
