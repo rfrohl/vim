@@ -223,15 +223,8 @@ if has("autocmd")
     "" Python
     au FileType python setl ts=4 sts=4 sw=4 expandtab
 
-
     "" Ruby
     au FileType ruby setl ts=2 sts=2 sw=2 expandtab
-
-    " RSpec
-    au Filetype ruby noremap <silent> <F9> :!rspec % -I ~/Code/hmr/infrastructure/acbs/lib -I ~/Code/hmr/infrastructure/naild/lib <CR>
-
-    " RuboCop
-    au Filetype ruby noremap <silent> <F10> :RuboCop<CR>
 
     "" yaml
     au FileType yaml setl ts=2 sts=2 sw=2 expandtab
