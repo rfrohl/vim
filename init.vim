@@ -233,6 +233,9 @@ if has("autocmd")
     "" web stuff
     au FileType js,html,css setl ts=2 sts=2 sw=2 expandtab
 
+    "" misc
+    au BufNewFile,BufRead _patchinfo set syntax=xml | setl spell
+
     "" always spellcheck certain file types
     au FileType markdown setl spell
     au FileType changes setl spell
@@ -320,3 +323,6 @@ nnoremap <silent> <Leader>rts :call TrimWhiteSpace()<CR>
 function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
+
+" add an XML stopped flag with current date
+map <Leader>w o<stopped>rfrohl: <Esc>:r !date +\%Y-\%m-\%d<CR>kJ o: </stopped><Esc>kJxl
