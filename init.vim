@@ -239,7 +239,7 @@ if has("autocmd")
     "" always spellcheck certain file types
     au FileType markdown setl spell
     au FileType changes setl spell
-    au FileType xml setl spell
+    au FileType xml setl spell ts=2 sts=2 sw=2
 endif
 
 " ========================================================================
