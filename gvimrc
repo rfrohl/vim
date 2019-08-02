@@ -8,12 +8,12 @@ set columns=115
 set textwidth=100
 set colorcolumn=105
 
-" color scheme
-"colorscheme molokai_new
-"colorscheme molokai
-"let g:molokai_original = 0
-"colorscheme mustang
-colorscheme hybrid
+"" color scheme
+colorscheme molokai
+set t_Co=256
+set t_ut=
+let g:rehash256=1
+set background=dark
 
 " Hide Print symbole
 aunmenu ToolBar.Print
