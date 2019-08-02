@@ -234,7 +234,8 @@ if has("autocmd")
     au FileType js,html,css setl ts=2 sts=2 sw=2 expandtab
 
     "" misc
-    au BufNewFile,BufRead _patchinfo set syntax=xml | setl spell
+    au BufNewFile,BufRead _patchinfo set filetype=xml | setl spell
+    au BufNewFile,BufRead _channel set filetype=xml | setl spell
 
     "" always spellcheck certain file types
     au FileType markdown setl spell
