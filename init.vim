@@ -236,7 +236,7 @@ if has("autocmd")
     au FileType js,html,css setl ts=2 sts=2 sw=2 expandtab
 
     "" misc
-    au BufNewFile,BufRead _patchinfo set filetype=xml | setl spell
+    au BufNewFile,BufRead _patchinfo set filetype=xml | setl spell | set noautoindent
     au BufNewFile,BufRead _channel set filetype=xml | setl spell
 
     "" always spellcheck certain file types
