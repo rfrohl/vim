@@ -240,8 +240,9 @@ if has("autocmd")
     au BufNewFile,BufRead _channel set filetype=xml | setl spell
 
     "" always spellcheck certain file types
-    au FileType markdown setl spell
     au FileType changes setl spell
+    au FileType gitcommit setl spell
+    au FileType markdown setl spell
     au FileType xml setl spell ts=2 sts=2 sw=2
 endif
 
