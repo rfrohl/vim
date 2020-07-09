@@ -107,7 +107,7 @@ command WQ wq
 command Q q
 
 " save files when runing vim with wrong permissions
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command WW :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 " move between tabs using shift+h/l
 nnoremap <S-h> gT
