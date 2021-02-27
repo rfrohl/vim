@@ -304,6 +304,7 @@ set laststatus=2
 let g:airline_theme = 'molokai'
 let g:airline#extensions#tmuxline#enabled = 0
 
+
 "" tmuxline
 let g:tmuxline_separators = {
     \ 'left' : '',
@@ -313,6 +314,8 @@ let g:tmuxline_separators = {
     \ 'space' : ' '
     \ }
 
+"" snipmate
+let g:snipMate = { 'snippet_version' : 1 }
 
 "" Tabularize
 map <Leader>t :Tabularize /
