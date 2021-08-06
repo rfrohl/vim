@@ -40,9 +40,6 @@
 [submodule "bundle/molokai"]
 	path = bundle/molokai
 	url = https://github.com/tomasr/molokai.git
-[submodule "bundle/matchit"]
-	path = bundle/matchit
-	url = https://github.com/tmhedberg/matchit.git
 [submodule "bundle/a"]
 	path = bundle/a
 	url = https://github.com/vim-scripts/a.vim.git
@@ -82,3 +79,6 @@
 [submodule "bundle/ale"]
 	path = bundle/ale
 	url = https://github.com/dense-analysis/ale.git
+[submodule "bundle/matchit"]
+	path = bundle/matchit
+	url = https://github.com/chrisbra/matchit.git
