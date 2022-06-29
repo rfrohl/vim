@@ -193,8 +193,13 @@ function ToggleHex()
 endfunction
 
 
+"" python
+nnoremap <F5> :!python %<CR>
+inoremap <F5> <Esc>:!python %<CR>
+vnoremap <F5> :<C-U>!python %<CR>
+
 "" Tagbar
-nnoremap <silent> <F5> :TagbarToggle<CR>
+nnoremap <silent> <F6> :TagbarToggle<CR>
 
 
 "" YankRing
