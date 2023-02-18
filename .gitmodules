@@ -1,12 +1,12 @@
 [submodule "bundle/vim-rake"]
 	path = bundle/rake
-	url = git://github.com/tpope/vim-rake.git
+	url = https://github.com/tpope/vim-rake.git
 [submodule "bundle/vim-bundler"]
 	path = bundle/bundler
-	url = git://github.com/tpope/vim-bundler.git
+	url = https://github.com/tpope/vim-bundler.git
 [submodule "bundle/vim-rails"]
 	path = bundle/rails
-	url = git://github.com/tpope/vim-rails.git
+	url = https://github.com/tpope/vim-rails.git
 [submodule "bundle/c.vim"]
 	path = bundle/c
 	url = https://github.com/vim-scripts/c.vim.git
@@ -72,7 +72,7 @@
 	url = https://github.com/mileszs/ack.vim.git
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
-	url = git://github.com/majutsushi/tagbar
+	url = https://github.com/majutsushi/tagbar
 [submodule "bundle/vim-airline-themes"]
 	path = bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
