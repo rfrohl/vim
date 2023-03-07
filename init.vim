@@ -325,6 +325,11 @@ let g:snipMate = { 'snippet_version' : 1 }
 "" Tabularize
 map <Leader>t :Tabularize /
 
+"" vimwiki
+let g:vimwiki_list = [{'path': '~/Documents/wiki/',
+                     \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
+
 " ========================================================================
 " Macros
 " ========================================================================
