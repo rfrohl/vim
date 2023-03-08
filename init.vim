@@ -37,7 +37,7 @@ set noshowmatch " turned off: it is distracting with the current colorscheme
 set matchtime=3
 
 " formating
-set textwidth=79
+set textwidth=120
 set colorcolumn=80
 
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
