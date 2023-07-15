@@ -194,9 +194,9 @@ endfunction
 
 
 "" python
-nnoremap <F5> :!python %<CR>
-inoremap <F5> <Esc>:!python %<CR>
-vnoremap <F5> :<C-U>!python %<CR>
+nnoremap <F5> :!python3 %<CR>
+inoremap <F5> <Esc>:!python3 %<CR>
+vnoremap <F5> :<C-U>!python3 %<CR>
 
 "" Tagbar
 nnoremap <silent> <F6> :TagbarToggle<CR>

@@ -1,5 +1,5 @@
-Check out
-    git checkout <URL> .vim
+Clone
+    git clone <URL> .vim
 
 What needs to be done to use this repo with vim
     ln -s ~/.vim/vimrc ~/.vimrc
